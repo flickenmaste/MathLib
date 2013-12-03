@@ -1,4 +1,4 @@
-//Last Edit 11/25/2013
+//Last Edit 12/2/2013
 //Will Gilstrap
 /////////////////////
 #ifndef _MATRIX_H_
@@ -123,6 +123,35 @@ public:
 	static void Rotation(Matrix3 &m)
 	{
 
+	}
+
+	Matrix3 operator* (const Matrix3 &w)
+	{
+		Matrix3 temp;
+		float product[3][3] = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
+
+		for (int row = 0; row < 3; row++) {
+        for (int col = 0; col < 3; col++) {
+            // Multiply the row of A by the column of B to get the row, column of product.
+            for (int inner = 0; inner < 3; inner++) {
+				product[row][col] += this->m_aMatrix[row][inner] * w.m_aMatrix[inner][col];
+            }
+            //std::cout << product[row][col] << "  ";
+        }
+        //std::cout << "\n";
+		}
+
+		temp.m_aMatrix[0][0] = product[0][0];
+		temp.m_aMatrix[0][1] = product[0][1];
+		temp.m_aMatrix[0][2] = product[0][2];
+		temp.m_aMatrix[1][0] = product[1][0];
+		temp.m_aMatrix[1][1] = product[1][1];
+		temp.m_aMatrix[1][2] = product[1][2];
+		temp.m_aMatrix[2][0] = product[2][0];
+		temp.m_aMatrix[2][1] = product[2][1];
+		temp.m_aMatrix[2][2] = product[2][2];
+
+		return temp;
 	}
 
 };
@@ -258,6 +287,42 @@ public:
 	static void Rotation(Matrix4 &m)
 	{
 
+	}
+
+	Matrix4 operator* (const Matrix4 &w)
+	{
+		Matrix4 temp;
+		float product[4][4] = {{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}};
+
+		for (int row = 0; row < 4; row++) {
+        for (int col = 0; col < 4; col++) {
+            // Multiply the row of A by the column of B to get the row, column of product.
+            for (int inner = 0; inner < 4; inner++) {
+				product[row][col] += this->m_aMatrix[row][inner] * w.m_aMatrix[inner][col];
+            }
+            //std::cout << product[row][col] << "  ";
+        }
+        //std::cout << "\n";
+		}
+
+		temp.m_aMatrix[0][0] = product[0][0];
+		temp.m_aMatrix[0][1] = product[0][1];
+		temp.m_aMatrix[0][2] = product[0][2];
+		temp.m_aMatrix[0][3] = product[0][3];
+		temp.m_aMatrix[1][0] = product[1][0];
+		temp.m_aMatrix[1][1] = product[1][1];
+		temp.m_aMatrix[1][2] = product[1][2];
+		temp.m_aMatrix[1][3] = product[1][3];
+		temp.m_aMatrix[2][0] = product[2][0];
+		temp.m_aMatrix[2][1] = product[2][1];
+		temp.m_aMatrix[2][2] = product[2][2];
+		temp.m_aMatrix[2][3] = product[2][3];
+		temp.m_aMatrix[3][0] = product[3][0];
+		temp.m_aMatrix[3][1] = product[3][1];
+		temp.m_aMatrix[3][2] = product[3][2];
+		temp.m_aMatrix[3][3] = product[3][3];
+
+		return temp;
 	}
 
 };

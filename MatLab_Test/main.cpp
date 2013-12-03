@@ -43,7 +43,7 @@ int main()
 
 	std::cout << std::endl;
 
-	Matrix3 eek = Matrix3::Multi(bye, hello);
+	Matrix3 eek = bye * hello;
 
 	for (int i = 0; i < 3; i++)
 	{
@@ -88,7 +88,7 @@ int main()
 
 	std::cout << std::endl;
 
-	Matrix4 multi = Matrix4::Multi(lol, nice);
+	Matrix4 multi = lol * nice;
 
 	for (int i = 0; i < 4; i++)
 	{
