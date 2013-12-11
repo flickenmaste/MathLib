@@ -1,9 +1,5 @@
 #include <iostream>
-#include "include\ComMath.h"
-#include "include\Matrix.h"
-#include "include\Vector2.h"
-#include "include\Vector3.h"
-#include "include\Vector4.h"
+#include "Mathlib.h"
 
 void testvec3();
 void testcommath();
@@ -100,7 +96,7 @@ int main()
 	}
 
 	std::cout << std::endl;
-	float angle = 90;
+	float angle = 30;
 	Matrix3 rotation = Matrix3::CreateRotation(angle);
 
 	for (int i = 0; i < 3; i++)

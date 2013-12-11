@@ -60,14 +60,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="include\ComMath.h" />
-    <ClInclude Include="include\Matrix.h" />
-    <ClInclude Include="include\Vector2.h" />
-    <ClInclude Include="include\Vector3.h" />
-    <ClInclude Include="include\Vector4.h" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClInclude Include="ComMath.h" />
+    <ClInclude Include="Matrix.h" />
+    <ClInclude Include="Vector2.h" />
+    <ClInclude Include="Vector3.h" />
+    <ClInclude Include="Vector4.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
