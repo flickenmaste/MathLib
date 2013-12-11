@@ -90,21 +90,43 @@ public:
 	}
 
 	// Create Rotation
-	static Matrix3 CreateRotation(Matrix3 &m)
-	{
-
+	static Matrix3 CreateRotation(float &angle)
+	{	
+		if (angle > 0)
+		{
+			Matrix3 temp;
+			temp.m_aMatrix[0][0] = cosf(angle);
+			temp.m_aMatrix[0][1] = sinf(angle);
+			temp.m_aMatrix[1][0] = asinf(angle);
+			temp.m_aMatrix[1][1] = cosf(angle);
+			return temp;
+		}
+		else if (angle < 0)
+		{
+			Matrix3 temp;
+			temp.m_aMatrix[0][0] = cosf(angle);
+			temp.m_aMatrix[0][1] = asinf(angle);
+			temp.m_aMatrix[1][0] = sinf(angle);
+			temp.m_aMatrix[1][1] = cosf(angle);
+			return temp;
+		}
 	}
 
 	// Create Translation
-	static Matrix3 CreateTranslation(Matrix3 &m)
+	static Matrix3 CreateTranslation(vector3 &v)
 	{
-
+		Matrix3 temp = Matrix3::CreateIdentity();
+		temp.m_aMatrix[0][2] = v.x;
+		temp.m_aMatrix[1][2] = v.y;
+		temp.m_aMatrix[2][2] = v.z;
+		return temp;
 	}
 
 	// Get Translation
 	static vector3 GetTranslation(Matrix3 &m)
 	{
-
+		vector3 temp = {temp.x = m.m_aMatrix[0][2], temp.y = m.m_aMatrix[1][2], temp.z = m.m_aMatrix[2][2]};
+		return temp;
 	}
 
 	// Get Rotation
@@ -114,15 +136,66 @@ public:
 	}
 
 	// Set Translation
-	static void Translation(Matrix3 &m)
+	static Matrix3 Translation(Matrix3 &m, vector3 &v)
 	{
+		Matrix3 temp = m;
 
+		temp.m_aMatrix[0][2] = v.x;
+		temp.m_aMatrix[1][2] = v.y;
+		temp.m_aMatrix[2][2] = v.z;
+		return temp;
 	}
 
 	// Set Rotation
-	static void Rotation(Matrix3 &m)
+	static Matrix3 Rotation(Matrix3 &m, float &angle)
 	{
+		if (angle > 0)
+		{
+			Matrix3 temp = m;
+			temp.m_aMatrix[0][0] = cosf(angle);
+			temp.m_aMatrix[0][1] = sinf(angle);
+			temp.m_aMatrix[1][0] = asinf(angle);
+			temp.m_aMatrix[1][1] = cosf(angle);
+			return temp;
+		}
+		else if (angle < 0)
+		{
+			Matrix3 temp = m;
+			temp.m_aMatrix[0][0] = cosf(angle);
+			temp.m_aMatrix[0][1] = asinf(angle);
+			temp.m_aMatrix[1][0] = sinf(angle);
+			temp.m_aMatrix[1][1] = cosf(angle);
+			return temp;
+		}
+	}
 
+	Matrix3 operator* (const Matrix3 &w)
+	{
+		Matrix3 temp;
+		float product[3][3] = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
+
+		for (int row = 0; row < 3; row++) {
+        for (int col = 0; col < 3; col++) {
+            // Multiply the row of A by the column of B to get the row, column of product.
+            for (int inner = 0; inner < 3; inner++) {
+				product[row][col] += this->m_aMatrix[row][inner] * w.m_aMatrix[inner][col];
+            }
+            //std::cout << product[row][col] << "  ";
+        }
+        //std::cout << "\n";
+		}
+
+		temp.m_aMatrix[0][0] = product[0][0];
+		temp.m_aMatrix[0][1] = product[0][1];
+		temp.m_aMatrix[0][2] = product[0][2];
+		temp.m_aMatrix[1][0] = product[1][0];
+		temp.m_aMatrix[1][1] = product[1][1];
+		temp.m_aMatrix[1][2] = product[1][2];
+		temp.m_aMatrix[2][0] = product[2][0];
+		temp.m_aMatrix[2][1] = product[2][1];
+		temp.m_aMatrix[2][2] = product[2][2];
+
+		return temp;
 	}
 
 	Matrix3 operator* (const Matrix3 &w)
@@ -254,21 +327,26 @@ public:
 	}
 
 	// Create Rotation
-	static Matrix4 CreateRotation(Matrix4 &m)
+	static Matrix4 CreateRotation(const float &angle)
 	{
 
 	}
 
 	// Create Translation
-	static Matrix4 CreateTranslation(Matrix4 &m)
+	static Matrix4 CreateTranslation(vector3 &v)
 	{
-
+		Matrix4 temp = Matrix4::CreateIdentity();
+		temp.m_aMatrix[0][3] = v.x;
+		temp.m_aMatrix[1][3] = v.y;
+		temp.m_aMatrix[2][3] = v.z;
+		return temp;
 	}
 
 	// Get Translation
-	static vector4 GetTranslation(Matrix4 &m)
+	static vector3 GetTranslation(Matrix4 &m)
 	{
-
+		vector3 temp = {temp.x = m.m_aMatrix[0][3], temp.y = m.m_aMatrix[1][3], temp.z = m.m_aMatrix[2][3]};
+		return temp;
 	}
 
 	// Get Rotation
@@ -278,9 +356,14 @@ public:
 	}
 
 	// Set Translation
-	static void Translation(Matrix4 &m)
+	static Matrix4 Translation(Matrix4 &m, vector3 &v)
 	{
+		Matrix4 temp = m;
 
+		temp.m_aMatrix[0][3] = v.x;
+		temp.m_aMatrix[1][3] = v.y;
+		temp.m_aMatrix[2][3] = v.z;
+		return temp;
 	}
 
 	// Set Rotation

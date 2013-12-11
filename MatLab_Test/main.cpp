@@ -99,6 +99,44 @@ int main()
 		std::cout << std::endl;
 	}
 
+	std::cout << std::endl;
+	float angle = 90;
+	Matrix3 rotation = Matrix3::CreateRotation(angle);
+
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			std::cout << rotation.m_aMatrix[i][j] << " ";
+		}
+		std::cout << std::endl;
+	}
+
+	std::cout << std::endl;
+	vector3 vec = {1, 2, 3};
+	Matrix3 translate = Matrix3::CreateTranslation(vec);
+
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			std::cout << translate.m_aMatrix[i][j] << " ";
+		}
+		std::cout << std::endl;
+	}
+
+	std::cout << std::endl;
+	Matrix4 translates = Matrix4::CreateTranslation(vec);
+
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			std::cout << translates.m_aMatrix[i][j] << " ";
+		}
+		std::cout << std::endl;
+	}
+
 	testvec3();
 
 	std::cin.get();
