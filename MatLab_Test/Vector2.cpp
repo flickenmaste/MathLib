@@ -1,6 +1,6 @@
 #include "Vector2.h"
 
-	vector2::vector2() {x = 0; y = 0;}
+vector2::vector2() {x = 0; y = 0;}
 	// Gets
 	float vector2::GetX() {return x;}
 	float vector2::GetY() {return y;}
@@ -8,7 +8,7 @@
 	void vector2::SetX(float nextX) {this->x = nextX;}
 	void vector2::SetY(float nextY) {this->y = nextY;}
 
-// Dot Product
+	// Dot Product
 float vector2::DotProduct(vector2 &a, vector2 &b) 
 	{ 
 		return (a.x * b.x + a.y * b.y); 

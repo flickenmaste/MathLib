@@ -15,24 +15,39 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\ComMath.h">
+    <ClInclude Include="ComMath.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Matrix.h">
+    <ClInclude Include="Mathlib.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Vector2.h">
+    <ClInclude Include="Matrix.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Vector3.h">
+    <ClInclude Include="Vector2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Vector4.h">
+    <ClInclude Include="Vector3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector4.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ComMath.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Vector2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

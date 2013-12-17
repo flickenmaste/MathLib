@@ -4,6 +4,30 @@
 void testvec3();
 void testcommath();
 
+void printM(Matrix3 &m)
+{
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			std::cout << m.m_aMatrix[i][j] << " ";
+		}
+		std::cout << std::endl;
+	}
+}
+
+void printM(Matrix4 &m)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			std::cout << m.m_aMatrix[i][j] << " ";
+		}
+		std::cout << std::endl;
+	}
+}
+
 int main()
 {
 	std::cout << "******Matrix stuff******" << std::endl;
@@ -11,14 +35,7 @@ int main()
 	// Matrix 3 stuff
 	Matrix3 hello = Matrix3::CreateIdentity();
 
-	for (int i = 0; i < 3; i++)
-	{
-		for (int j = 0; j < 3; j++)
-		{
-			std::cout << hello.m_aMatrix[i][j] << " ";
-		}
-		std::cout << std::endl;
-	}
+	printM(hello);
 
 	std::cout << std::endl;
 
@@ -28,41 +45,20 @@ int main()
 
 	Matrix3 bye = Matrix3::SetMatrix(one,two,three);
 
-	for (int i = 0; i < 3; i++)
-	{
-		for (int j = 0; j < 3; j++)
-		{
-			std::cout << bye.m_aMatrix[i][j] << " ";
-		}
-		std::cout << std::endl;
-	}
+	printM(bye);
 
 	std::cout << std::endl;
 
 	Matrix3 eek = bye * hello;
 
-	for (int i = 0; i < 3; i++)
-	{
-		for (int j = 0; j < 3; j++)
-		{
-			std::cout << eek.m_aMatrix[i][j] << " ";
-		}
-		std::cout << std::endl;
-	}
+	printM(eek);
 
 	std::cout << std::endl;
 
 	// Matrix 4 stuff
 	Matrix4 nice = Matrix4::CreateIdentity();
 
-	for (int i = 0; i < 4; i++)
-	{
-		for (int j = 0; j < 4; j++)
-		{
-			std::cout << nice.m_aMatrix[i][j] << " ";
-		}
-		std::cout << std::endl;
-	}
+	printM(nice);
 
 	std::cout << std::endl;
 
@@ -73,65 +69,30 @@ int main()
 
 	Matrix4 lol = Matrix4::SetMatrix(a,b,c,d);
 	
-	for (int i = 0; i < 4; i++)
-	{
-		for (int j = 0; j < 4; j++)
-		{
-			std::cout << lol.m_aMatrix[i][j] << " ";
-		}
-		std::cout << std::endl;
-	}
+	printM(lol);
 
 	std::cout << std::endl;
 
 	Matrix4 multi = lol * nice;
 
-	for (int i = 0; i < 4; i++)
-	{
-		for (int j = 0; j < 4; j++)
-		{
-			std::cout << multi.m_aMatrix[i][j] << " ";
-		}
-		std::cout << std::endl;
-	}
+	printM(multi);
 
 	std::cout << std::endl;
 	float angle = 30;
 	Matrix3 rotation = Matrix3::CreateRotation(angle);
 
-	for (int i = 0; i < 3; i++)
-	{
-		for (int j = 0; j < 3; j++)
-		{
-			std::cout << rotation.m_aMatrix[i][j] << " ";
-		}
-		std::cout << std::endl;
-	}
+	printM(rotation);
 
 	std::cout << std::endl;
 	vector3 vec = {1, 2, 3};
 	Matrix3 translate = Matrix3::CreateTranslation(vec);
 
-	for (int i = 0; i < 3; i++)
-	{
-		for (int j = 0; j < 3; j++)
-		{
-			std::cout << translate.m_aMatrix[i][j] << " ";
-		}
-		std::cout << std::endl;
-	}
+	printM(translate);
 
 	std::cout << std::endl;
 	Matrix4 translates = Matrix4::CreateTranslation(vec);
 
-	for (int i = 0; i < 4; i++)
-	{
-		for (int j = 0; j < 4; j++)
-		{
-			std::cout << translates.m_aMatrix[i][j] << " ";
-		}
-		std::cout << std::endl;
-	}
+	printM(translates);
 
 	testvec3();
 
