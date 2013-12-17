@@ -162,7 +162,9 @@ void testvec3()
 
 	std::cout << "Cross Prod: " << cross.x << " " << cross.y << " " << cross.z << std::endl;
 
-	std::cout << "Angle: " << vector3::GetAngle(first, second) << std::endl;
+	float radian = vector3::GetAngle(first, second);
+	float angle = Math::ToDegree(radian);
+	std::cout << "Angle: " << angle << std::endl;
 	testcommath();
 }
 
