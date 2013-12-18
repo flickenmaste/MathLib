@@ -14,7 +14,7 @@
 #include <math.h> 
 #include <stdlib.h>
 
-class vector4
+class DLLEXPORT vector4
 {
 public:
 	float t;

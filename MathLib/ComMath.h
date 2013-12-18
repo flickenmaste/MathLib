@@ -15,7 +15,7 @@
 #include <stdlib.h>
 
 
-class Math
+class DLLEXPORT Math
 {
 public:
 	// convert degree to radian

@@ -15,7 +15,7 @@
 #include "Vector3.h"
 #include "Vector4.h"
 
-class Matrix3
+class DLLEXPORT Matrix3
 {
 public:
 	float m_aMatrix[3][3];
@@ -92,7 +92,7 @@ public:
 
 };
 
-class Matrix4
+class DLLEXPORT Matrix4
 {
 public:
 	float m_aMatrix[4][4];
