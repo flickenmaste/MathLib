@@ -155,10 +155,10 @@ public:
 	static vector4 Scale(Matrix4 &m, const vector4 &vec);
 
 	// Ortho
-	Matrix4 OGLOrthoMatrix(float a_fLeft, float a_fRight, float a_fTop, float a_fBottom, float a_fFar, float a_fNear);
+	Matrix4 OGLOrthoMatrix(float Left, float Right, float Top, float Bottom, float Far, float Near);
 
 	// Ortho
-	Matrix4 OrthoMatrix(float a_fLeft, float a_fRight, float a_fTop, float a_fBottom, float a_fFar, float a_fNear);
+	Matrix4 OrthoMatrix(float Left, float Right, float Top, float Bottom, float Far, float Near);
 
 	// Operators
 	Matrix4 operator* (const Matrix4 &w)

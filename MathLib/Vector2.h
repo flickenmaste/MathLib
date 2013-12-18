@@ -14,7 +14,7 @@
 #include <math.h>
 #include <stdlib.h>
 
-class DLLEXPORT vector2
+class vector2
 {
 public:
 	vector2();
